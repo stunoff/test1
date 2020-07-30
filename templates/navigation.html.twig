@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Get Lids</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+
+            {% for nav_header, nav in global_navigation %}
+                {# dropdown menus #}
+                {% if nav_header != 'links' %}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{ nav_header }}
+                        </a>
+
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            {% for item in nav %}
+                                <a class="dropdown-item" href="{{ item.page_url }}">{{ item.page_title }}</a>
+                            {% endfor %}
+                        </div>
+                    </li>
+                {% else %}
+                    {% for item in nav %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ item.page_url }}">{{ item.page_title }}</a>
+                        </li>
+                    {% endfor %}
+                {% endif %}
+
+            {% endfor %}
+        </ul>
+        <a class="nav-link disabled" href="#">{{ global_user.login }}</a>
+        <a href="/test/controllers/logout.php">
+            <button class="btn btn-danger my-2 my-sm-0" type="submit">Выход</button>
+        </a>
+    </div>
+</nav>

@@ -1,0 +1,27 @@
+{
+  "name": "***",
+  "description": "***",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+	{
+	  "name": "***",
+	  "email": "stunoff@gmail.com"
+	}
+  ],
+  "config": {
+	"vendor-dir": "vendor/"
+  },
+  "require": {
+    "twig/twig": "1.36.0",
+	"ext-pdo": "*",
+	"ext-json": "*",
+	"ext-soap": "*",
+    "ext-mysql": "*"
+  },
+  "autoload": {
+	"psr-4": {
+	  "App\\": "app/"
+	}
+  }
+}
